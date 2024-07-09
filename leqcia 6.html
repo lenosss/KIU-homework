@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let milesDriven = prompt("how many miles have driven?");
+      let gallons = prompt("How many gallons of fuel does your car hold?");
+      let mpg = milesDriven / gallons;
+      document.write(`your car gets: ${mpg.toFixed(2)} miles per gallon.`);
+
+      //task2
+      let score1;
+      let score2;
+      let score3;
+      let total = 0;
+      let average;
+
+      score1 = prompt("what is the first score?");
+      total += parseFloat(score1);
+
+      score2 = prompt("what is second score?");
+      total += parseFloat(score2);
+
+      score3 = prompt("what is third score?");
+      total += parseFloat(score3);
+
+      //calculate the average
+      average = total / 3;
+
+      //display the result
+      document.write(`<h1> the test score aplication</h1>`);
+      document.write(`the first score was $(score1)<br/>`);
+      document.write(`the second score was $(score2)<br/>`);
+      document.write(`the third score was $(score3)<br/>`);
+      document.write(`the avarage of the three score is ${average.toFixed(2)}`);
+
+      //task3
+      //global variables
+      let customeType;
+      let dicountPercent;
+      let discountAmount;
+      let newInvoiceTotal;
+
+      //display message to user
+      document.write(`<h3> welcome to the invoice Application</h3>`);
+
+      //ask user for their customer Type and get the initial invoice total
+      customerType = prompt(`enter your customer type (r/w)`);
+      invoiceTotal = parseFloat(prompt(`enter invoice Total`));
+
+      //chec user is retail or wholesale customer
+      if (customerType === "r") {
+        //check invoice total and set discount percent
+        if (invoiceTotal >= 500) {
+          discountPercent = 0.25;
+        } else if (invoiceTotal >= 250 && invoiceTotal < 500) {
+          dicountPercent = 0.1;
+        } else {
+          dicountPercent0;
+        }
+      } else if (customerType === "w") {
+        if (invoiceTotal >= 1000) {
+          discountPercent = 0.35;
+        } else if (invoiceTotal >= 500 && invoiceTotal < 1000) {
+          discountPercent = 0.3;
+        } else {
+        }
+      }
+      ///////////////////////////////////
+
+      //task4
+    </script>
+  </head>
+  <body></body>
+</html>

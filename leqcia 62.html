@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let futureValue;
+      let investment;
+      let rate;
+      let yearas;
+
+      //colect values from the user
+      investment = parseFloat(prompt(`Enter investment amount as xxxx.xx`));
+      rate = parseFloat(prompt(`enter interest rate as xx.x`));
+      years = parseInt(
+        prompt(`Enter the number of years you want to invest for`)
+      ); //parse int strings agiqvavs integerad
+
+      //calculate future value
+      futureValue = investment;
+      for (let i = 0; i < years; i++) {
+        futureValue = futureValue + (futureVAlue * rate) / 100;
+      }
+      //display result
+      document.write(`investment amount : $${investment.toFixed(2)}<br>`);
+      document.write(`interest rate : ${rate.toFixed(2)}%<br>`);
+      document.write(`years: $(years)<br>`);
+      document.write(`Future value : $${futureValue.toFixed(2)}`);
+    </script>
+  </head>
+  <body></body>
+</html>

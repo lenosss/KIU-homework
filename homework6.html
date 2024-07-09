@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      //task1
+      const kiu = {
+        name: "kiu",
+        type: "university",
+        age: 4,
+        location: "Kutaisi",
+      };
+      for (let key in kiu) {
+        console.log(`prperty: ${key}, Value: ${kiu[key]}`);
+      }
+
+      //task2
+
+      const coworkers = [
+        { name: "lika", experience: 5 },
+        { name: "nika", experience: 7 },
+        { name: "tami", experience: 2 },
+      ];
+      const ascedingExperience = [...coworkers].sort(
+        (a, b) => a.experience - b.experience
+      );
+      console.log(ascedingExperience);
+
+      //task3
+
+      function swapKeysAndValues(obj) {
+        const swappedObj = {};
+        for (let key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            const value = obj[key];
+            swappedObj[value] = key;
+          }
+        }
+        return swappedObj;
+      }
+
+      const originalObject = {
+        name: "saxeli",
+        surname: "gvari",
+      };
+      const swappedObject = swapKeysAndValues(originalObject);
+      console.log(originalObject);
+      console.log(swappedObject);
+
+      //task4
+
+      const linerSearch = (arr, item) => {
+        for (const i in arr) {
+          if (arr[i] === item) return +i;
+        }
+        return -1;
+      };
+      const nums = [1, 2, 3, 4, 5, 6, 3, 5, 7];
+      console.log(linerSearch(nums, 3));
+
+      //task4
+      var bold_Items;
+      window.onload = getBold_items();
+
+      function getBold_items() {
+        bold_Items = document.getElementsByTagName("strong");
+      }
+
+      function highlight() {
+        for (var i = 0; i < bold_Items.length; i++) {
+          bold_Items[i].style.color = "green";
+        }
+      }
+
+      function return_normal() {
+        for (var i = 0; i < bold_Items.length; i++) {
+          bold_Items[i].style.color = "black";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <p>[<a href="#" onMouseOver="highlight()" onMouseOut="return_normal()">click to highlight the bold words in the text</a>]</p> 
+<p><strong>here</strong> is some bold <strong>words</strong> click and see <strong>what</strong> will happen <strong></p>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Countdown Application</title>
+    <style>
+      .container {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      input[type="text"],
+      input[type="date"],
+      button {
+        margin: 10px;
+        padding: 5px;
+        font-size: 16px;
+      }
+
+      #countdown {
+        font-size: 24px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Event Countdown Application</h1>
+      <input type="text" id="eventName" placeholder="Event Name" />
+      <input type="date" id="eventDate" />
+      <button onclick="countdown()">Countdown</button>
+      <div id="countdown"></div>
+    </div>
+
+    <script>
+      function countdown() {
+        var eventName = document.getElementById("eventName").value;
+        var eventDate = new Date(document.getElementById("eventDate").value);
+        var currentDate = new Date();
+
+        var timeDiff = eventDate.getTime() - currentDate.getTime();
+        var daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+        if (daysLeft < 0) {
+          document.getElementById("countdown").innerText =
+            "The event has already passed.";
+        } else {
+          document.getElementById("countdown").innerText =
+            "Days left until " + eventName + ": " + daysLeft;
+        }
+      }
+    </script>
+  </body>
+</html>

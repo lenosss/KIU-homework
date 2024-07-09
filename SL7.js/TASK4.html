@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pig Dice Game</title>
+    <style>
+      .container {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      #score {
+        font-size: 24px;
+      }
+
+      #message {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Pig Dice Game</h1>
+      <p id="score">Player 1: 0 | Player 2: 0</p>
+      <p id="message">Player 1's turn</p>
+      <button onclick="rollDice()">Roll Dice</button>
+      <button onclick="hold()">Hold</button>
+    </div>
+
+    <script>
+      var scores = [0, 0];
+      var currentPlayer = 0;
+      var currentScore = 0;
+
+      function rollDice() {
+        var dice1 = Math.floor(Math.random() * 6) + 1;
+        var dice2 = Math.floor(Math.random() * 6) + 1;
+
+        if (dice1 === 1 || dice2 === 1) {
+          currentScore = 0;
+          switchPlayer();
+        } else {
+          currentScore += dice1 + dice2;
+        }
+
+        document.getElementById("message").innerText =
+          "Player " + (currentPlayer + 1) + "'s turn";
+        document.getElementById("score").innerText =
+          "Player 1: " +
+          scores[0] +
+          " | Player 2: " +
+          scores[1] +
+          " | Current: " +
+          currentScore;
+      }
+
+      function hold() {
+        scores[currentPlayer] += currentScore;
+        currentScore = 0;
+
+        if (scores[currentPlayer] >= 100) {
+          document.getElementById("message").innerText =
+            "Player " + (currentPlayer + 1) + " wins!";
+          disableButtons();
+        } else {
+          switchPlayer();
+        }
+      }
+
+      function switchPlayer() {
+        currentPlayer = currentPlayer === 0 ? 1 : 0;
+        currentScore = 0;
+        document.getElementById("message").innerText =
+          "Player " + (currentPlayer + 1) + "'s turn";
+        document.getElementById("score").innerText =
+          "Player 1: " +
+          scores[0] +
+          " | Player 2: " +
+          scores[1] +
+          " | Current: " +
+          currentScore;
+      }
+
+      function disableButtons() {
+        document.getElementsByTagName("button")[0].disabled = true;
+        document.getElementsByTagName("button")[1].disabled = true;
+      }
+    </script>
+  </body>
+</html>

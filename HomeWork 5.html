@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <script>
+      function calculate() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+
+        var resultMultiplication = num1 * num2;
+        var resultDivision = num1 / num2;
+
+        document.getElementById("multiplicationResult").innerHTML =
+          "Multiplication Result: " + resultMultiplication;
+
+        document.getElementById("divisionResult").innerHTML =
+          "Division Result: " + resultDivision;
+      }
+
+      function computeAverageMarks(marks) {
+        var totalMarks = 0;
+        for (var i = 0; i < marks.lenght; i++) {
+          totalMarks += marks[i];
+        }
+        return totalMarks / marks.lenght;
+      }
+
+      function determineGrade(averageMarks) {
+        if (averageMarks >= 90) {
+          return "A";
+        } else if (averageMarks >= 80) {
+          return "B";
+        } else if (averageMarks >= 70) {
+          return "C";
+        } else if (averageMarks >= 60) {
+          return "D";
+        } else {
+          return "F";
+        }
+
+        var studentMarks = [
+          [80, 86, 75, 89, 100][(75, 80, 58, 99, 67)][(79, 97, 76, 84, 70)][
+            (63, 81, 95, 62, 51)
+          ][(92, 89, 56, 75, 100)],
+        ];
+
+        for (var i = 0; i < sudentMarks.lenght; i++) {
+          var avarageMArks = computeAvarageMarks(studentMarks[i]);
+          var grade = determineGrade(avarageMarks);
+          console.log(
+            " student " + (i + 1) + ": Avarage Marks =",
+            avarageMarks.toFixed(2),
+            ", Grade=",
+            grade
+          );
+        }
+      }
+      var user = {
+        name: "nika",
+        age: 25,
+        hobbies: {
+          indoor: "VideoGames",
+          outdoor: "Reading",
+        },
+        interests: {
+          music: "Jazz",
+          movies: "Detective",
+        },
+      };
+      console.log("Person's name:", user.name);
+      console.log("Indoor hobby:", user.hobbies.indoor);
+      var age = user.age;
+      console.log("person's age:", age);
+      console.log("Favorite music genre:", user.interests.music);
+      var student = {
+        name: "Gio",
+        age: 21,
+        grade: "C",
+      };
+
+      student.age = 21;
+      student.grade = "A";
+      console.log(student);
+
+      function calculateDiscount(customerType, totalAmount) {
+        let discount = 0;
+
+        if (customerType === "retail") {
+          discount = totalAmount * 0.1;
+        } else if (customerType === "wholesale") {
+          discount = totalAmount * 0.2;
+        }
+        return discount;
+      }
+
+      const retailCustomerDiscount = calculateDiscount("retail", 100);
+      console.log("Retail Customer Discount:", retailCustomerDiscount);
+
+      const wholesaleCustomerDiscount = calculateDiscount("wholesale", 100);
+      console.log("Wholesale Customer Discount:", wholesaleCustomerDiscount);
+    </script>
+  </head>
+  <body>
+    <h2>Multiplication and Division CAlculator</h2>
+
+    <form>
+      <lable for="num1">Number 1:</lable>
+      <input type="number" id="num1" name="num1" />
+
+      <label for="num2">Number 2:</label>
+      <input type="number" id="num2" name="num2" />
+
+      <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+
+    <div id="multiplicationResult"></div>
+    <div id="divisionResult"></div>
+  </body>
+</html>

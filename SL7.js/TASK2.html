@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQs Application</title>
+    <style>
+      .accordion {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+      }
+
+      .accordion .panel {
+        display: none;
+        padding: 10px;
+        background-color: #f9f9f9;
+      }
+
+      .accordion .panel.active {
+        display: block;
+      }
+
+      .accordion .panel-toggle {
+        cursor: pointer;
+      }
+
+      .accordion .panel-toggle::after {
+        content: "+";
+        float: right;
+      }
+
+      .accordion .panel.active .panel-toggle::after {
+        content: "-";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="accordion">
+      <div class="panel-toggle" onclick="togglePanel(1)">Question 1</div>
+      <div class="panel" id="panel1">Answer 1</div>
+    </div>
+    <div class="accordion">
+      <div class="panel-toggle" onclick="togglePanel(2)">Question 2</div>
+      <div class="panel" id="panel2">Answer 2</div>
+    </div>
+    <!-- Add more FAQs here -->
+
+    <script>
+      function togglePanel(panelNumber) {
+        var panel = document.getElementById("panel" + panelNumber);
+        panel.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

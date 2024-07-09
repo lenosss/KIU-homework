@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50, -50);
+        background-color: white;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+      }
+      .accordion {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+      }
+
+      .accordion .panel {
+        display: none;
+        padding: 10px;
+        background-color: #f9f9f9;
+      }
+
+      .accordion .panel.active {
+        display: block;
+      }
+
+      .accordion .panel-toggle {
+        cursor: pointer;
+      }
+
+      .accordion .panel-toggle::after {
+        content: "+";
+        float: right;
+      }
+
+      .accordion .panel.active .panel-toggle::after {
+        content: "-";
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="showLogin()">Log In</button>
+
+    <div id="loginPopup" class="popup">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="username">Username:</label><br />
+        <input type="text" id="username" name="username" /><br />
+        <label for="password">Password:</label><br />
+        <input type="password" id="password" name="password" /><br />
+        <button type="submit">Submit</button>
+        <button type="button" onclick="cancelLogin()">Cancel</button>
+      </form>
+    </div>
+
+    <div id="loginOutput"></div>
+    <div class="accordion">
+      <div class="panel-toggle" onclick="togglePanel(1)">Question 1</div>
+      <div class="panel" id="panel1">Answer 1</div>
+    </div>
+    <div class="accordion">
+      <div class="panel-toggle" onclick="togglePanel(2)">Question 2</div>
+      <div class="panel" id="panel2">Answer 2</div>
+    </div>
+
+    <script>
+      function showLogin() {
+        document.getElementById("loginPopup").style.display = "block";
+      }
+
+      function cancelLogin() {
+        document.getElementById("loginPopup").style.display = "none";
+      }
+
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var username = document.getElementById("username").value;
+          var password = docuemnt.getElementById("password").value;
+
+          var output = document.getElementById("loginOutput");
+          output.innerHTML =
+            "Username: " + username + "<br>Password: " + password;
+
+          cancelLogin();
+        });
+      function togglePanel(panelNumber) {
+        var panel = document.getElementById("panel" + panelNumber);
+        panel.classList.toggle("active");
+      }
+    </script>
+
+    /task2
+  </body>
+</html>

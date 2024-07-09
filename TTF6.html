@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const song = {
+        name: "Bohemian Rhapsody",
+        band: "Queen",
+        relased: "1975 31 oct",
+        duration: "3.55",
+      };
+
+      let count = 1;
+      for (let key in song) {
+        if (song.hasOwnProperty(key)) {
+          console.log(count + " " + key + ": " + song[key]);
+          count++;
+        }
+      }
+
+      const personInfo = {
+        name: "Ferry",
+        age: 62,
+        city: "Caracas",
+      };
+      const jobInfo = {
+        experience: 7,
+        occupation: "speech-LAnguage Pathologist",
+      };
+
+      const fullInfo = { ...personInfo, ...jobInfo, isRetired: false };
+
+      for (let key in fullInfo) {
+        console.log(`${key}: ${fullInfo[key]}`);
+      }
+
+      const movie = {
+        namae: "GOingIn STyle",
+        producer: " Donald De Line",
+        duration: "96",
+        budget: "$25 million",
+      };
+      const { name, producer, duration, budget } = movie;
+      console.log(
+        `Movie: ${name} | Produser: ${producer} | Duration: ${duration} | Budget: ${budget}`
+      );
+
+      const celsusTemperatures = [0, 25, 100, -5, 15];
+      const fahrenheitTemperatures = celsusTemperatures.map(
+        (celsus) => celsus * 1.8 + 32
+      );
+
+      console.log("Celsus Temperature:", celsusTemperatures);
+      console.log("Fahrenheit Temperature:", fahrenheitTemperatures);
+
+      const products = [
+        { name: "Laptop", price: 1200, featured: false },
+        { name: "Headphones", price: 150, featured: true },
+        { name: "Smarohone", price: 800, featured: false },
+        { name: "Camera", price: 1000, featured: true },
+      ];
+      const featuredProduct = products.find((product) => product.featured);
+
+      if (featuredProduct) {
+        console.log("Featured Product Name: ", featuredProduct.name);
+        console.log("Featured Product Price: ", featuredProduct.price);
+      } else {
+        console.log("no Featured product Found.");
+      }
+
+      const students = [
+        { name: "Alice", score: 90 },
+        { name: "Bob", score: 87 },
+        { name: "Charlie", score: 95 },
+        { name: "Dvaid", score: 78 },
+        { name: "Emma", score: 92 },
+      ];
+
+      const highScorers = students.filter((student) => student.score >= 90);
+      console.log("High Scorers:", highScorers);
+
+      const books = [
+        {
+          title: "Noughts & Crosses",
+          author: "Malorie Blackman",
+          PublicationYear: 2001,
+        },
+        {
+          title: "Priestdaddy",
+          author: "Patricia Lockwood",
+          publicationYear: 2017,
+        },
+        {
+          title: "The Cost of Living",
+          author: "Deborah Levy",
+          publicationYear: 2018,
+        },
+      ];
+      const sortedByTitle = [...books].sort((a, b) =>
+        a.title.localeCompare(b.title)
+      );
+      const sortedByAuthor = [...books].sort((a, b) =>
+        b.author.localeCompare(a.author)
+      );
+      const sortedByYear = [...books].sort(
+        (a, b) => b.publicationYear - a.publicationYear
+      );
+
+      const titles = sortedByTitle.map((book) => book.title);
+      const authors = sortedByAuthor.map((book) => book.author);
+      const publicationYears = sortedByYear.map((book) => book.publicationYear);
+
+      console.log("Sorted by title:", sortedByTitle);
+      console.log("Sorted by author:", sortedByAuthor);
+      console.log("Sorted by year:", sortedByYear);
+      console.log("Titles:", titles);
+      console.log("Authors:", authors);
+      console.log("Publication Years:", publicationYears);
+    </script>
+  </head>
+  <body></body>
+</html>
